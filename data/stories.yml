@@ -1,0 +1,93 @@
+version: "2.0"
+
+stories:
+
+# - story: happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_great
+#   - action: utter_happy
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+
+- story: restaurant_survey_form
+  steps:
+  - intent: greet
+  - action: restaurant_survey_form
+  - active_loop: restaurant_survey_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Mangesh
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: Mangesh@gmail.com
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: 5483218743
+  - slot_was_set:
+    - requested_slot: feedback
+  - slot_was_set:
+    - feedback: True
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null 
+  - action: action_Thanks_1
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: restaurant_survey_form
+  - active_loop: restaurant_survey_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: My name is Kishor
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: itc@yahoo.com
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: '758498582'
+  - slot_was_set:
+    - requested_slot: feedback
+  - slot_was_set:
+    - feedback: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_Thanks_1
